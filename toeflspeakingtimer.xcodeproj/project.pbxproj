@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DD918752914005035D3 /* Q1Q2question.mp3 */; };
+		22577DDC18752951005035D3 /* prepare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DDB18752951005035D3 /* prepare.mp3 */; };
+		22577DDE18752961005035D3 /* speak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DDD18752961005035D3 /* speak.mp3 */; };
+		22577DE018752D1A005035D3 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DDF18752D1A005035D3 /* beep.mp3 */; };
+		225A07B01877AAD4004E2B4C /* Practice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 225A07AF1877AAD4004E2B4C /* Practice@2x.png */; };
+		225A07CE1877B5B9004E2B4C /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 225A07CD1877B5B9004E2B4C /* start.png */; };
+		225A07D61877C02B004E2B4C /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 225A07D51877C02B004E2B4C /* stop.png */; };
+		22936DCF186E6D1A005F6AE3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */; };
+		22936DD1186E6D30005F6AE3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22936DD0186E6D30005F6AE3 /* AVFoundation.framework */; };
+		229DCE04187658E600C16AEA /* Q3Q4question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE03187658E600C16AEA /* Q3Q4question.mp3 */; };
+		229DCE0618765E0500C16AEA /* Q5Q6question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE0518765E0500C16AEA /* Q5Q6question.mp3 */; };
+		229DCE081876663500C16AEA /* pictureForFun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE071876663500C16AEA /* pictureForFun.jpg */; };
+		229DCE0C1876A1B100C16AEA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE0B1876A1B100C16AEA /* icon.png */; };
+		22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AF2F41186A41270048CAC8 /* SpeakingTimerViewController.m */; };
+		22AF2F44186A41270048CAC8 /* SpeakingTimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AF2F42186A41270048CAC8 /* SpeakingTimerViewController.xib */; };
+		22CFF83F18680A1800CCF761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF83E18680A1800CCF761 /* Foundation.framework */; };
+		22CFF84118680A1800CCF761 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF84018680A1800CCF761 /* CoreGraphics.framework */; };
+		22CFF84318680A1800CCF761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF84218680A1800CCF761 /* UIKit.framework */; };
+		22CFF84918680A1800CCF761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22CFF84718680A1800CCF761 /* InfoPlist.strings */; };
+		22CFF84B18680A1800CCF761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF84A18680A1800CCF761 /* main.m */; };
+		22CFF84F18680A1800CCF761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF84E18680A1800CCF761 /* AppDelegate.m */; };
+		22CFF85118680A1800CCF761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFF85018680A1800CCF761 /* Images.xcassets */; };
+		22CFF85818680A1800CCF761 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF85718680A1800CCF761 /* XCTest.framework */; };
+		22CFF85918680A1800CCF761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF83E18680A1800CCF761 /* Foundation.framework */; };
+		22CFF85A18680A1800CCF761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF84218680A1800CCF761 /* UIKit.framework */; };
+		22CFF86218680A1800CCF761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22CFF86018680A1800CCF761 /* InfoPlist.strings */; };
+		22CFF86418680A1800CCF761 /* TOEFLSpeakingTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF86318680A1800CCF761 /* TOEFLSpeakingTimerTests.m */; };
+		22CFF86F18680A4F00CCF761 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF86E18680A4F00CCF761 /* mainViewController.m */; };
+		22CFF87318680E2F00CCF761 /* mainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFF87218680E2F00CCF761 /* mainViewController.xib */; };
+		22DD87FD187A496000ACA81B /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DD87FC187A496000ACA81B /* next.png */; };
+		22DD87FF187A559800ACA81B /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DD87FE187A559800ACA81B /* save.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22CFF85B18680A1800CCF761 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22CFF83318680A1800CCF761 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22CFF83A18680A1800CCF761;
+			remoteInfo = TOEFLSpeakingTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22577DD918752914005035D3 /* Q1Q2question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q1Q2question.mp3; sourceTree = "<group>"; };
+		22577DDB18752951005035D3 /* prepare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = prepare.mp3; sourceTree = "<group>"; };
+		22577DDD18752961005035D3 /* speak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = speak.mp3; sourceTree = "<group>"; };
+		22577DDF18752D1A005035D3 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		225A07AF1877AAD4004E2B4C /* Practice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Practice@2x.png"; sourceTree = "<group>"; };
+		225A07CD1877B5B9004E2B4C /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		225A07D51877C02B004E2B4C /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		22936DD0186E6D30005F6AE3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		229DCE03187658E600C16AEA /* Q3Q4question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q3Q4question.mp3; sourceTree = "<group>"; };
+		229DCE0518765E0500C16AEA /* Q5Q6question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q5Q6question.mp3; sourceTree = "<group>"; };
+		229DCE071876663500C16AEA /* pictureForFun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pictureForFun.jpg; sourceTree = "<group>"; };
+		229DCE0B1876A1B100C16AEA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		22AF2F40186A41270048CAC8 /* SpeakingTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakingTimerViewController.h; sourceTree = "<group>"; };
+		22AF2F41186A41270048CAC8 /* SpeakingTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakingTimerViewController.m; sourceTree = "<group>"; };
+		22AF2F42186A41270048CAC8 /* SpeakingTimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeakingTimerViewController.xib; sourceTree = "<group>"; };
+		22AF2F4B186A5A840048CAC8 /* constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constant.h; path = ../constant.h; sourceTree = "<group>"; };
+		22CFF83B18680A1800CCF761 /* TOEFLSpeakingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOEFLSpeakingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22CFF83E18680A1800CCF761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22CFF84018680A1800CCF761 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		22CFF84218680A1800CCF761 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		22CFF84618680A1800CCF761 /* TOEFLSpeakingTimer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOEFLSpeakingTimer-Info.plist"; sourceTree = "<group>"; };
+		22CFF84818680A1800CCF761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22CFF84A18680A1800CCF761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22CFF84C18680A1800CCF761 /* TOEFLSpeakingTimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOEFLSpeakingTimer-Prefix.pch"; sourceTree = "<group>"; };
+		22CFF84D18680A1800CCF761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		22CFF84E18680A1800CCF761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		22CFF85018680A1800CCF761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		22CFF85618680A1800CCF761 /* TOEFLSpeakingTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOEFLSpeakingTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22CFF85718680A1800CCF761 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		22CFF85F18680A1800CCF761 /* TOEFLSpeakingTimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOEFLSpeakingTimerTests-Info.plist"; sourceTree = "<group>"; };
+		22CFF86118680A1800CCF761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22CFF86318680A1800CCF761 /* TOEFLSpeakingTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOEFLSpeakingTimerTests.m; sourceTree = "<group>"; };
+		22CFF86D18680A4F00CCF761 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
+		22CFF86E18680A4F00CCF761 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+		22CFF87218680E2F00CCF761 /* mainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = mainViewController.xib; path = ../mainViewController.xib; sourceTree = "<group>"; };
+		22DD87FC187A496000ACA81B /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		22DD87FE187A559800ACA81B /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22CFF83818680A1800CCF761 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22936DD1186E6D30005F6AE3 /* AVFoundation.framework in Frameworks */,
+				22936DCF186E6D1A005F6AE3 /* AudioToolbox.framework in Frameworks */,
+				22CFF84118680A1800CCF761 /* CoreGraphics.framework in Frameworks */,
+				22CFF84318680A1800CCF761 /* UIKit.framework in Frameworks */,
+				22CFF83F18680A1800CCF761 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22CFF85318680A1800CCF761 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CFF85818680A1800CCF761 /* XCTest.framework in Frameworks */,
+				22CFF85A18680A1800CCF761 /* UIKit.framework in Frameworks */,
+				22CFF85918680A1800CCF761 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22CFF83218680A1800CCF761 = {
+			isa = PBXGroup;
+			children = (
+				22CFF84418680A1800CCF761 /* TOEFLSpeakingTimer */,
+				22CFF85D18680A1800CCF761 /* TOEFLSpeakingTimerTests */,
+				22CFF83D18680A1800CCF761 /* Frameworks */,
+				22CFF83C18680A1800CCF761 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22CFF83C18680A1800CCF761 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22CFF83B18680A1800CCF761 /* TOEFLSpeakingTimer.app */,
+				22CFF85618680A1800CCF761 /* TOEFLSpeakingTimerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22CFF83D18680A1800CCF761 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22936DD0186E6D30005F6AE3 /* AVFoundation.framework */,
+				22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */,
+				22CFF83E18680A1800CCF761 /* Foundation.framework */,
+				22CFF84018680A1800CCF761 /* CoreGraphics.framework */,
+				22CFF84218680A1800CCF761 /* UIKit.framework */,
+				22CFF85718680A1800CCF761 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22CFF84418680A1800CCF761 /* TOEFLSpeakingTimer */ = {
+			isa = PBXGroup;
+			children = (
+				229DCE0B1876A1B100C16AEA /* icon.png */,
+				22AF2F4B186A5A840048CAC8 /* constant.h */,
+				22CFF84D18680A1800CCF761 /* AppDelegate.h */,
+				22CFF84E18680A1800CCF761 /* AppDelegate.m */,
+				22CFF86D18680A4F00CCF761 /* mainViewController.h */,
+				22CFF86E18680A4F00CCF761 /* mainViewController.m */,
+				22CFF87218680E2F00CCF761 /* mainViewController.xib */,
+				22AF2F40186A41270048CAC8 /* SpeakingTimerViewController.h */,
+				22AF2F41186A41270048CAC8 /* SpeakingTimerViewController.m */,
+				22AF2F42186A41270048CAC8 /* SpeakingTimerViewController.xib */,
+				22CFF85018680A1800CCF761 /* Images.xcassets */,
+				22CFF84518680A1800CCF761 /* Supporting Files */,
+			);
+			path = TOEFLSpeakingTimer;
+			sourceTree = "<group>";
+		};
+		22CFF84518680A1800CCF761 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22DD87FE187A559800ACA81B /* save.png */,
+				22DD87FC187A496000ACA81B /* next.png */,
+				225A07D51877C02B004E2B4C /* stop.png */,
+				225A07CD1877B5B9004E2B4C /* start.png */,
+				225A07AF1877AAD4004E2B4C /* Practice@2x.png */,
+				229DCE071876663500C16AEA /* pictureForFun.jpg */,
+				22577DDF18752D1A005035D3 /* beep.mp3 */,
+				22577DDD18752961005035D3 /* speak.mp3 */,
+				22577DDB18752951005035D3 /* prepare.mp3 */,
+				22577DD918752914005035D3 /* Q1Q2question.mp3 */,
+				229DCE03187658E600C16AEA /* Q3Q4question.mp3 */,
+				229DCE0518765E0500C16AEA /* Q5Q6question.mp3 */,
+				22CFF84618680A1800CCF761 /* TOEFLSpeakingTimer-Info.plist */,
+				22CFF84718680A1800CCF761 /* InfoPlist.strings */,
+				22CFF84A18680A1800CCF761 /* main.m */,
+				22CFF84C18680A1800CCF761 /* TOEFLSpeakingTimer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22CFF85D18680A1800CCF761 /* TOEFLSpeakingTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				22CFF86318680A1800CCF761 /* TOEFLSpeakingTimerTests.m */,
+				22CFF85E18680A1800CCF761 /* Supporting Files */,
+			);
+			path = TOEFLSpeakingTimerTests;
+			sourceTree = "<group>";
+		};
+		22CFF85E18680A1800CCF761 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22CFF85F18680A1800CCF761 /* TOEFLSpeakingTimerTests-Info.plist */,
+				22CFF86018680A1800CCF761 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22CFF83A18680A1800CCF761 /* TOEFLSpeakingTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22CFF86718680A1800CCF761 /* Build configuration list for PBXNativeTarget "TOEFLSpeakingTimer" */;
+			buildPhases = (
+				22CFF83718680A1800CCF761 /* Sources */,
+				22CFF83818680A1800CCF761 /* Frameworks */,
+				22CFF83918680A1800CCF761 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TOEFLSpeakingTimer;
+			productName = TOEFLSpeakingTimer;
+			productReference = 22CFF83B18680A1800CCF761 /* TOEFLSpeakingTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22CFF85518680A1800CCF761 /* TOEFLSpeakingTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22CFF86A18680A1800CCF761 /* Build configuration list for PBXNativeTarget "TOEFLSpeakingTimerTests" */;
+			buildPhases = (
+				22CFF85218680A1800CCF761 /* Sources */,
+				22CFF85318680A1800CCF761 /* Frameworks */,
+				22CFF85418680A1800CCF761 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22CFF85C18680A1800CCF761 /* PBXTargetDependency */,
+			);
+			name = TOEFLSpeakingTimerTests;
+			productName = TOEFLSpeakingTimerTests;
+			productReference = 22CFF85618680A1800CCF761 /* TOEFLSpeakingTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22CFF83318680A1800CCF761 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = tim;
+				TargetAttributes = {
+					22CFF85518680A1800CCF761 = {
+						TestTargetID = 22CFF83A18680A1800CCF761;
+					};
+				};
+			};
+			buildConfigurationList = 22CFF83618680A1800CCF761 /* Build configuration list for PBXProject "toeflspeakingtimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 22CFF83218680A1800CCF761;
+			productRefGroup = 22CFF83C18680A1800CCF761 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22CFF83A18680A1800CCF761 /* TOEFLSpeakingTimer */,
+				22CFF85518680A1800CCF761 /* TOEFLSpeakingTimerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22CFF83918680A1800CCF761 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229DCE04187658E600C16AEA /* Q3Q4question.mp3 in Resources */,
+				22577DDE18752961005035D3 /* speak.mp3 in Resources */,
+				22DD87FF187A559800ACA81B /* save.png in Resources */,
+				22DD87FD187A496000ACA81B /* next.png in Resources */,
+				225A07B01877AAD4004E2B4C /* Practice@2x.png in Resources */,
+				229DCE081876663500C16AEA /* pictureForFun.jpg in Resources */,
+				225A07D61877C02B004E2B4C /* stop.png in Resources */,
+				22CFF84918680A1800CCF761 /* InfoPlist.strings in Resources */,
+				22CFF85118680A1800CCF761 /* Images.xcassets in Resources */,
+				225A07CE1877B5B9004E2B4C /* start.png in Resources */,
+				22CFF87318680E2F00CCF761 /* mainViewController.xib in Resources */,
+				22577DDC18752951005035D3 /* prepare.mp3 in Resources */,
+				22577DE018752D1A005035D3 /* beep.mp3 in Resources */,
+				22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */,
+				229DCE0C1876A1B100C16AEA /* icon.png in Resources */,
+				22AF2F44186A41270048CAC8 /* SpeakingTimerViewController.xib in Resources */,
+				229DCE0618765E0500C16AEA /* Q5Q6question.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22CFF85418680A1800CCF761 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CFF86218680A1800CCF761 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22CFF83718680A1800CCF761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CFF86F18680A4F00CCF761 /* mainViewController.m in Sources */,
+				22CFF84F18680A1800CCF761 /* AppDelegate.m in Sources */,
+				22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */,
+				22CFF84B18680A1800CCF761 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22CFF85218680A1800CCF761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CFF86418680A1800CCF761 /* TOEFLSpeakingTimerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22CFF85C18680A1800CCF761 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22CFF83A18680A1800CCF761 /* TOEFLSpeakingTimer */;
+			targetProxy = 22CFF85B18680A1800CCF761 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22CFF84718680A1800CCF761 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22CFF84818680A1800CCF761 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		22CFF86018680A1800CCF761 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22CFF86118680A1800CCF761 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22CFF86518680A1800CCF761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		22CFF86618680A1800CCF761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22CFF86818680A1800CCF761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Prefix.pch";
+				INFOPLIST_FILE = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		22CFF86918680A1800CCF761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Prefix.pch";
+				INFOPLIST_FILE = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		22CFF86B18680A1800CCF761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TOEFLSpeakingTimer.app/TOEFLSpeakingTimer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TOEFLSpeakingTimerTests/TOEFLSpeakingTimerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		22CFF86C18680A1800CCF761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TOEFLSpeakingTimer.app/TOEFLSpeakingTimer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOEFLSpeakingTimer/TOEFLSpeakingTimer-Prefix.pch";
+				INFOPLIST_FILE = "TOEFLSpeakingTimerTests/TOEFLSpeakingTimerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22CFF83618680A1800CCF761 /* Build configuration list for PBXProject "toeflspeakingtimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22CFF86518680A1800CCF761 /* Debug */,
+				22CFF86618680A1800CCF761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22CFF86718680A1800CCF761 /* Build configuration list for PBXNativeTarget "TOEFLSpeakingTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22CFF86818680A1800CCF761 /* Debug */,
+				22CFF86918680A1800CCF761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22CFF86A18680A1800CCF761 /* Build configuration list for PBXNativeTarget "TOEFLSpeakingTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22CFF86B18680A1800CCF761 /* Debug */,
+				22CFF86C18680A1800CCF761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22CFF83318680A1800CCF761 /* Project object */;
+}
