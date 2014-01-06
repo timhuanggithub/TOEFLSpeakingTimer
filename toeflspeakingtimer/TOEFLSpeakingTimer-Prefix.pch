@@ -1,0 +1,27 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#define DEFAULT_COLOR [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1.0]
+#define Q1Q2PrepareTime 150
+#define Q1Q2SpeakingTime 500
+#define Q3Q4PrepareTime 3000
+#define Q3Q4SpeakingTime 6000
+#define Q5Q6PrepareTime 2000
+#define Q5Q6SpeakingTime 6000
+#define readingTime 4500
+
+#define buttonFontAndSize [UIFont fontWithName:@"System" size:23]
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
