@@ -49,7 +49,7 @@
 -(void)setToIntial;
 - (IBAction)pressSaveToRecord:(id)sender;
 - (IBAction)pressPlayRecordButton:(id)sender;
-
+-(void)swapButtonPostion:(UIButton *)button1 with:(UIButton *) button2;
 
 
 

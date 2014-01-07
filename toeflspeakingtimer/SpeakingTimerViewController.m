@@ -31,6 +31,8 @@
             recordPlayer.delegate = self;
             [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
             _TimeLabel.text = @"00:00";
+            [self swapButtonPostion:_startStopButton with:_playRecord];
+            
             
         }
         else if ([_playOrder[iForArray] isKindOfClass:[NSTimer class]] ) {
@@ -50,10 +52,14 @@
     }
     else if (sender == _startStopButton && startButtonPressed == YES){
         if (iForArray == _playOrder.count) {
+            [self swapButtonPostion:_startStopButton with:_playRecord];
             [self setToIntial];
+            
         }
-        if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
-            [self pressStartButton:self];
+        if (iForArray<_playOrder.count) {
+            if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
+                [self pressStartButton:self];
+            }
         }
         else {
             [self stop];
@@ -87,9 +93,10 @@
         
         NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc]init];
         
-        [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-        [recordSetting setValue:[NSNumber numberWithFloat:4100.0] forKey:AVSampleRateKey];
+        [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatAppleLossless] forKey:AVFormatIDKey];
+        [recordSetting setValue:[NSNumber numberWithFloat:44100.0f] forKey:AVSampleRateKey];
         [recordSetting setValue:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
+        [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityLow] forKey:AVEncoderAudioQualityKey];
         
         speakingRecorder = [[AVAudioRecorder alloc]initWithURL:outputFileURL settings:recordSetting error:NULL];
         [speakingRecorder prepareToRecord];
@@ -104,6 +111,7 @@
 {
     [super viewDidLoad];
     [self setToIntial];
+
     
 }
 
@@ -126,7 +134,6 @@
 -(void) updateSpeakingTime{
     if (_remainingSpeakingTime > 0) {
         if (![speakingRecorder isRecording]) {
-            [session setActive:YES error:nil];
             [speakingRecorder record];
             
         }
@@ -155,13 +162,11 @@
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    NSLog(@"it's not going to be OK 2");
     if (player == recordPlayer && flag == YES) {
         [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
         _startStopButton.hidden = NO;
     }
     else if (player == recordPlayer && flag == NO){
-        NSLog(@"it's ok");
     }
 
     else if((player == speak || prepare) && flag == YES){
@@ -235,7 +240,7 @@
         Q3Q4question.delegate = self;
         
         
-        _playOrder = [NSArray arrayWithObjects:readingTimer,@"Continue",Q3Q4question,prepare,beep,prepareTimer,speak,beep,speakingTimer,0, nil];
+        _playOrder = [NSArray arrayWithObjects:readingTimer,@"Continue",Q3Q4question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
     }
     else if (_currentQuestion == 56){
         _initalPrepareTime = Q5Q6PrepareTime;
@@ -254,7 +259,7 @@
         
         
         
-        _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer,0, nil];
+        _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
     }
     
     startButtonPressed = NO;
@@ -272,6 +277,7 @@
 
 - (IBAction)pressPlayRecordButton:(id)sender {
     if ([recordPlayer isPlaying]) {
+        NSLog(@"%f", recordPlayer.currentTime);
         [recordPlayer stop];
         recordPlayer.currentTime = 0;
         [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
@@ -322,6 +328,13 @@
     recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
     recordPlayer.delegate = self;
 
+}
+
+-(void)swapButtonPostion:(UIButton *)button1 with:(UIButton *) button2{
+
+    CGRect frame = button1.frame;
+    button1.frame = button2.frame;
+    button2.frame =frame;
 }
 
 @end
