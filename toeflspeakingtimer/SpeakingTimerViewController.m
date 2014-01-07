@@ -83,6 +83,7 @@
         
         session = [AVAudioSession sharedInstance];
         [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        [session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         
         NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc]init];
         
@@ -115,7 +116,9 @@
     }
     else if (_remainingPrepareTime <= 0){
         [self stop];
+        if(_playOrder[iForArray+1] != nil ){
         iForArray++;
+        }
         [self pressStartButton:self];
     }
 }
@@ -162,7 +165,6 @@
     }
 
     else if((player == speak || prepare) && flag == YES){
-        NSLog(@"it's not ok");
         iForArray++;
         [self pressStartButton:self];
     }
@@ -233,7 +235,7 @@
         Q3Q4question.delegate = self;
         
         
-        _playOrder = [NSArray arrayWithObjects:readingTimer,@"Continue",Q3Q4question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
+        _playOrder = [NSArray arrayWithObjects:readingTimer,@"Continue",Q3Q4question,prepare,beep,prepareTimer,speak,beep,speakingTimer,0, nil];
     }
     else if (_currentQuestion == 56){
         _initalPrepareTime = Q5Q6PrepareTime;
@@ -252,7 +254,7 @@
         
         
         
-        _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
+        _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer,0, nil];
     }
     
     startButtonPressed = NO;
@@ -288,23 +290,21 @@
 
 -(void)stop{
     if ([speakingRecorder isRecording]) {
-        NSLog(@"%f",speakingRecorder.currentTime);
         [speakingRecorder stop];
-        NSLog(@"%f",speakingRecorder.currentTime);
     }
     if ([recordPlayer isPlaying]) {
-        NSLog(@"record player");
         [recordPlayer stop];
         recordPlayer.currentTime = 0;
-    }
 
-    if ([_playOrder[iForArray] isKindOfClass:[NSTimer class]] && [_playOrder[iForArray] isValid]) {
-        NSLog(@"nstimer");
-        [_playOrder[iForArray] invalidate];
     }
-    else if ([ _playOrder[iForArray] isKindOfClass:[AVAudioPlayer class]] && [_playOrder[iForArray] isPlaying]) {
-        NSLog(@"avaudioplayer");
-        [_playOrder[iForArray] stop];
+    if (iForArray<_playOrder.count) {
+        if ([_playOrder[iForArray] isKindOfClass:[NSTimer class]] && [_playOrder[iForArray] isValid]) {
+            [_playOrder[iForArray] invalidate];
+        }
+        else if ([ _playOrder[iForArray] isKindOfClass:[AVAudioPlayer class]] && [_playOrder[iForArray] isPlaying]) {
+            [_playOrder[iForArray] stop];
+        }
+    
     }
     
     

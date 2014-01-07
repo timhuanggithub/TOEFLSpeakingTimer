@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "mainViewController.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface SpeakingTimerViewController : UIViewController<AVAudioPlayerDelegate,AVAudioRecorderDelegate>{
     NSTimer *prepareTimer;

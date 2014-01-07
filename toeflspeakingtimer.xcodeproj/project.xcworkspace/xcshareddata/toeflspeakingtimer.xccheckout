@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>49587956-B794-4505-A9F7-542CCA349619</string>
+	<key>IDESourceControlProjectName</key>
+	<string>toeflspeakingtimer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>44376CD1-898A-42DF-A2AE-5A11A99310B8</key>
+		<string>https://github.com/83227476/TOEFLSpeakingTimer.git</string>
+		<key>6215FF8C-4DA4-4397-BA0A-03795B72D7BD</key>
+		<string>https://github.com/83227476/TOEFLSpeakingTimer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>toeflspeakingtimer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>44376CD1-898A-42DF-A2AE-5A11A99310B8</key>
+		<string>../../toeflspeakingtimer</string>
+		<key>6215FF8C-4DA4-4397-BA0A-03795B72D7BD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/83227476/TOEFLSpeakingTimer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6215FF8C-4DA4-4397-BA0A-03795B72D7BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>44376CD1-898A-42DF-A2AE-5A11A99310B8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>toeflspeakingtimer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6215FF8C-4DA4-4397-BA0A-03795B72D7BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TOEFLSpeakingTimer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
