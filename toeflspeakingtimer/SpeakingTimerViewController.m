@@ -31,6 +31,8 @@
             recordPlayer.delegate = self;
             [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
             _TimeLabel.text = @"00:00";
+            [self swapButtonPostion:_startStopButton with:_playRecord];
+            ButtonSwaped = YES;
             
             
             
@@ -54,8 +56,6 @@
         if (iForArray == _playOrder.count) {
             [self stop];
             [self setToIntial];
-            [self swapButtonPostion:_startStopButton with:_playRecord];
-            ButtonSwaped = YES;
             
             
         }
@@ -63,12 +63,17 @@
             if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
                 [self pressStartButton:self];
             }
-        else {
-            [self stop];
-            [self setToIntial];
-
+            else{
+                [self stop];
+                [self setToIntial];
             }
+        
         }
+        else{
+        [self stop];
+        [self setToIntial];
+        }
+
     }
 }
 
@@ -171,8 +176,6 @@
     if (player == recordPlayer && flag == YES) {
         [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
         _startStopButton.hidden = NO;
-    }
-    else if (player == recordPlayer && flag == NO){
     }
 
     else if((player == speak || prepare) && flag == YES){
@@ -291,20 +294,26 @@
 
 - (IBAction)pressPlayRecordButton:(id)sender {
     if ([recordPlayer isPlaying]) {
-        NSLog(@"%f", recordPlayer.currentTime);
-        [recordPlayer stop];
-        recordPlayer.currentTime = 0;
-        [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
-        _startStopButton.hidden = NO;
-
-        
+        [self stop];
     }
     else{
         [recordPlayer play];
         [_playRecord setImage:[UIImage imageNamed:@"stop"] forState:UIControlStateNormal];
+        _remainingRecordTime = _initalSpeakingTime;
+        recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateRecordTime) userInfo:Nil repeats:YES];
     }
 }
 
+-(void)updateRecordTime{
+    if (_remainingRecordTime >0) {
+        _remainingRecordTime -= 1;
+        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", _remainingRecordTime/100,_remainingRecordTime%100];
+    }
+    else if(_remainingRecordTime <= 0){
+        [self stop];
+        
+    }
+}
 
 
 -(void)stop{
@@ -314,7 +323,12 @@
     if ([recordPlayer isPlaying]) {
         [recordPlayer stop];
         recordPlayer.currentTime = 0;
+        [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
 
+    }
+    if ([recordTimer isValid]) {
+        [recordTimer invalidate];
+        _TimeLabel.text= @"00:00";
     }
     if (iForArray<_playOrder.count) {
         if ([_playOrder[iForArray] isKindOfClass:[NSTimer class]] && [_playOrder[iForArray] isValid]) {
@@ -331,16 +345,21 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self stop];
-    [self setToIntial];
+    if (_playRecord.hidden && _saveToRecord.hidden) {
+        [self setToIntial];
+    }
+
     
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
-    _saveToRecord.hidden = NO;
-    _playRecord.hidden =NO;
-    recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
-    recordPlayer.delegate = self;
-
+    if (_remainingSpeakingTime == 0 && recorder == speakingRecorder) {
+        _saveToRecord.hidden = NO;
+        _playRecord.hidden =NO;
+        recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
+        recordPlayer.delegate = self;
+    }
+    
 }
 
 -(void)swapButtonPostion:(UIButton *)button1 with:(UIButton *) button2{

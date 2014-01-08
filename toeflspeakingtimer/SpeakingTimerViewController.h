@@ -23,6 +23,7 @@
     AVAudioPlayer *prepare;
     AVAudioPlayer *beep;
     BOOL ButtonSwaped;
+    NSTimer *recordTimer;
     
 }
 
@@ -34,6 +35,8 @@
 @property NSInteger remainingPrepareTime;
 @property NSInteger initalReadingTime;
 @property NSInteger remainingReadingTime;
+@property NSInteger remainingRecordTime;
+
 @property (weak, nonatomic) IBOutlet UITextView *questionDescription;
 
 @property NSArray *playOrder;
