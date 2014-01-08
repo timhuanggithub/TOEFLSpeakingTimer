@@ -52,8 +52,10 @@
     }
     else if (sender == _startStopButton && startButtonPressed == YES){
         if (iForArray == _playOrder.count) {
-            //[self swapButtonPostion:_startStopButton with:_playRecord];
+            [self stop];
             [self setToIntial];
+            [self swapButtonPostion:_startStopButton with:_playRecord];
+            
             
         }
         if (iForArray<_playOrder.count) {
@@ -102,6 +104,9 @@
         speakingRecorder = [[AVAudioRecorder alloc]initWithURL:outputFileURL settings:recordSetting error:NULL];
         [speakingRecorder prepareToRecord];
         speakingRecorder.delegate = self;
+        
+        startButtonFrame = _startStopButton.frame;
+        playReocrdButtonFrame = _playRecord.frame;
 
 
     }
@@ -110,13 +115,10 @@
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     [self setToIntial];
-    CGRect a = _startStopButton.frame;
-    CGRect b = _playRecord.frame;
-    NSLog(@"%@",NSStringFromCGRect(a));
-    NSLog(@"%@",NSStringFromCGRect(b));
-
+    
     
 }
 
@@ -274,10 +276,11 @@
     _remainingReadingTime = _initalReadingTime;
     iForArray = 0;
     
-    //_startStopButton.frame = CGRectMake(138, 453, 45, 45);
-    NSLog(@"%@",NSStringFromCGRect(_startStopButton.frame));
-    //_playRecord.frame = CGRectMake(241, 453, 45, 45);
-    //[self.view setNeedsLayout];
+    //_startStopButton.frame = startButtonFrame;
+    //[self.view bringSubviewToFront:_startStopButton];
+    //_playRecord.frame = playReocrdButtonFrame;
+    //[self.view bringSubviewToFront:_playRecord];
+
 
     
 }
@@ -299,7 +302,6 @@
     else{
         [recordPlayer play];
         [_playRecord setImage:[UIImage imageNamed:@"stop"] forState:UIControlStateNormal];
-        _startStopButton.hidden = YES;
     }
 }
 
