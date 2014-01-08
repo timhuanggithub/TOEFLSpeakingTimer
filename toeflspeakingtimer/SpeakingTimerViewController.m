@@ -31,7 +31,7 @@
             recordPlayer.delegate = self;
             [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
             _TimeLabel.text = @"00:00";
-            [self swapButtonPostion:_startStopButton with:_playRecord];
+            
             
             
         }
@@ -55,6 +55,7 @@
             [self stop];
             [self setToIntial];
             [self swapButtonPostion:_startStopButton with:_playRecord];
+            ButtonSwaped = YES;
             
             
         }
@@ -105,8 +106,6 @@
         [speakingRecorder prepareToRecord];
         speakingRecorder.delegate = self;
         
-        startButtonFrame = _startStopButton.frame;
-        playReocrdButtonFrame = _playRecord.frame;
 
 
     }
@@ -276,10 +275,11 @@
     _remainingReadingTime = _initalReadingTime;
     iForArray = 0;
     
-    //_startStopButton.frame = startButtonFrame;
-    //[self.view bringSubviewToFront:_startStopButton];
-    //_playRecord.frame = playReocrdButtonFrame;
-    //[self.view bringSubviewToFront:_playRecord];
+    if (ButtonSwaped == YES) {
+        [self swapButtonPostion:_startStopButton with:_playRecord];
+        ButtonSwaped = NO;
+    }
+    
 
 
     

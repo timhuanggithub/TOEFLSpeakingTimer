@@ -50,20 +50,20 @@
 
 - (IBAction)pressButtonQ1Q2:(id)sender {
     SpeakingTimerViewController *Q1Q2SpeakingTimerViewController = [[SpeakingTimerViewController alloc]initWithPressedButton:_buttonQ1Q2];
-    Q1Q2SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
+    //Q1Q2SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
     [[self navigationController] pushViewController:Q1Q2SpeakingTimerViewController animated:YES];
     
     
 }
 - (IBAction)pressButtonQ3Q4:(id)sender {
     SpeakingTimerViewController *Q3Q4SpeakingTimerViewController = [[SpeakingTimerViewController alloc] initWithPressedButton:_buttonQ3Q4];
-    Q3Q4SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
+    //Q3Q4SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
     [[self navigationController]pushViewController:Q3Q4SpeakingTimerViewController animated:YES];
 }
 
 - (IBAction)pressButtonQ5Q6:(id)sender {
     SpeakingTimerViewController *Q5Q6SpeakingTimerViewController = [[SpeakingTimerViewController alloc] initWithPressedButton:_buttonQ5Q6];
-    Q5Q6SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
+    //Q5Q6SpeakingTimerViewController.hidesBottomBarWhenPushed = YES;
     [[self navigationController]pushViewController:Q5Q6SpeakingTimerViewController animated:YES];
 }
 @end

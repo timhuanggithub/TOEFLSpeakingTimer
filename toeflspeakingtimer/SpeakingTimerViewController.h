@@ -22,8 +22,7 @@
     AVAudioPlayer *speak;
     AVAudioPlayer *prepare;
     AVAudioPlayer *beep;
-    CGRect startButtonFrame;
-    CGRect playReocrdButtonFrame;
+    BOOL ButtonSwaped;
     
 }
 
