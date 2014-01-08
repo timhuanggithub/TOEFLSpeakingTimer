@@ -52,7 +52,7 @@
     }
     else if (sender == _startStopButton && startButtonPressed == YES){
         if (iForArray == _playOrder.count) {
-            [self swapButtonPostion:_startStopButton with:_playRecord];
+            //[self swapButtonPostion:_startStopButton with:_playRecord];
             [self setToIntial];
             
         }
@@ -60,10 +60,11 @@
             if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
                 [self pressStartButton:self];
             }
-        }
         else {
             [self stop];
             [self setToIntial];
+
+            }
         }
     }
 }
@@ -111,6 +112,10 @@
 {
     [super viewDidLoad];
     [self setToIntial];
+    CGRect a = _startStopButton.frame;
+    CGRect b = _playRecord.frame;
+    NSLog(@"%@",NSStringFromCGRect(a));
+    NSLog(@"%@",NSStringFromCGRect(b));
 
     
 }
@@ -268,6 +273,12 @@
     _remainingSpeakingTime = _initalSpeakingTime;
     _remainingReadingTime = _initalReadingTime;
     iForArray = 0;
+    
+    //_startStopButton.frame = CGRectMake(138, 453, 45, 45);
+    NSLog(@"%@",NSStringFromCGRect(_startStopButton.frame));
+    //_playRecord.frame = CGRectMake(241, 453, 45, 45);
+    //[self.view setNeedsLayout];
+
     
 }
 
