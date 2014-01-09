@@ -220,6 +220,11 @@
         AVAudioPlayer *Q1Q2question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q1Q2questionURL error:nil];
         Q1Q2question.delegate = self;
         
+        NSFileManager *fileManger = [NSFileManager defaultManager];
+        
+        
+        currentQuestionDirectory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q1Q2/"];
+        
         _questionDescription.editable = YES;
         _questionDescription.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
         _questionDescription.editable = NO;
@@ -248,6 +253,8 @@
         AVAudioPlayer *Q3Q4question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q3Q4questionURL error:nil];
         Q3Q4question.delegate = self;
         
+        currentQuestionDirectory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q3Q4/"];
+        
         
         _playOrder = [NSArray arrayWithObjects:readingTimer,@"Continue",Q3Q4question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
     }
@@ -266,6 +273,7 @@
         AVAudioPlayer *Q5Q6question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q5Q6questionURL error:nil];
         Q5Q6question.delegate = self;
         
+        currentQuestionDirectory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q5Q6/"];
         
         
         _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
@@ -282,14 +290,31 @@
         [self swapButtonPostion:_startStopButton with:_playRecord];
         ButtonSwaped = NO;
     }
-    
-
-
-    
+    NSLog(@"%@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)firstObject]);
+   
 }
 
 - (IBAction)pressSaveToRecord:(id)sender {
-    NSLog(@"11");
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    NSArray *sourcePathComponents = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject],@"SpeakingMemo.m4a", nil];
+    NSURL *sourceURL = [NSURL fileURLWithPathComponents:sourcePathComponents];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyyMMddHHmm"];
+    NSString *destFileName = [[formatter stringFromDate:[NSDate date]] stringByAppendingPathExtension:@"m4a"];
+    
+    
+    NSArray *destPathComponent = [NSArray arrayWithObjects:currentQuestionDirectory,destFileName, nil];
+    NSURL *destURL = [NSURL fileURLWithPathComponents:destPathComponent];
+    if ([sourceURL checkResourceIsReachableAndReturnError:nil]) {
+        NSLog(@"hi");
+        NSLog(@"%@",sourceURL);
+        NSLog(@"%@",destURL);
+       BOOL a = [fileManger moveItemAtURL:sourceURL toURL:destURL error:nil];
+        NSLog(@"%hhd",a);
+        
+    }
+    
 }
 
 - (IBAction)pressPlayRecordButton:(id)sender {

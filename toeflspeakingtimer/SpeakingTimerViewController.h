@@ -24,6 +24,7 @@
     AVAudioPlayer *beep;
     BOOL ButtonSwaped;
     NSTimer *recordTimer;
+    NSString *currentQuestionDirectory;
     
 }
 
