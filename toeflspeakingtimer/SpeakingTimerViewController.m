@@ -46,35 +46,29 @@
         }
         else if ([_playOrder[iForArray] isKindOfClass:[NSString class]]){
             [_startStopButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
-            iForArray++;
             
         }
 
         
     }
     else if (sender == _startStopButton && startButtonPressed == YES){
-        if (iForArray == _playOrder.count) {
-            [self stop];
-            [self setToIntial];
-            
-            
-        }
         if (iForArray<_playOrder.count) {
             if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
+                iForArray++;
                 [self pressStartButton:self];
+                _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", _remainingPrepareTime/100,_remainingPrepareTime%100];
             }
             else{
                 [self stop];
                 [self setToIntial];
             }
-        
         }
         else{
-        [self stop];
-        [self setToIntial];
+            [self stop];
+            [self setToIntial];
         }
-
     }
+
 }
 
 
@@ -201,9 +195,11 @@
     speak.delegate = self;
     
     [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+    _saveToRecord.enabled = YES;
     _playRecord.hidden = YES;
     
     [_saveToRecord setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    _saveToRecord.enabled = YES;
     _saveToRecord.hidden = YES;
 
     
@@ -220,10 +216,11 @@
         AVAudioPlayer *Q1Q2question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q1Q2questionURL error:nil];
         Q1Q2question.delegate = self;
         
-        NSFileManager *fileManger = [NSFileManager defaultManager];
         
         
         currentQuestionDirectory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q1Q2/"];
+        
+        
         
         _questionDescription.editable = YES;
         _questionDescription.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
@@ -290,7 +287,11 @@
         [self swapButtonPostion:_startStopButton with:_playRecord];
         ButtonSwaped = NO;
     }
-    NSLog(@"%@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)firstObject]);
+    
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    if (![fileManger fileExistsAtPath:currentQuestionDirectory isDirectory:NULL]) {
+        [fileManger createDirectoryAtPath:currentQuestionDirectory withIntermediateDirectories:NO attributes:nil error:nil];
+    }
    
 }
 
@@ -307,12 +308,11 @@
     NSArray *destPathComponent = [NSArray arrayWithObjects:currentQuestionDirectory,destFileName, nil];
     NSURL *destURL = [NSURL fileURLWithPathComponents:destPathComponent];
     if ([sourceURL checkResourceIsReachableAndReturnError:nil]) {
-        NSLog(@"hi");
-        NSLog(@"%@",sourceURL);
-        NSLog(@"%@",destURL);
-       BOOL a = [fileManger moveItemAtURL:sourceURL toURL:destURL error:nil];
-        NSLog(@"%hhd",a);
-        
+        [fileManger moveItemAtURL:sourceURL toURL:destURL error:nil];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Notification" message:@"The record has been saved. " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
     
 }

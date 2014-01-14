@@ -11,7 +11,7 @@
 #define Q3Q4SpeakingTime 6000
 #define Q5Q6PrepareTime 2000
 #define Q5Q6SpeakingTime 6000
-#define readingTime 4500
+#define readingTime 100
 
 #define buttonFontAndSize [UIFont fontWithName:@"System" size:23]
 
