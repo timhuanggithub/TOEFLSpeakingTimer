@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		222AD0411885B73200838FF0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222AD0401885B73200838FF0 /* QuartzCore.framework */; };
-		22459E81188648BC0086C7B6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22459E7F188648BC0086C7B6 /* RecordViewController.m */; };
 		22459E82188648BC0086C7B6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22459E80188648BC0086C7B6 /* RecordViewController.xib */; };
 		22459E8518864AB30086C7B6 /* Record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22459E8418864AB30086C7B6 /* Record@2x.png */; };
 		22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DD918752914005035D3 /* Q1Q2question.mp3 */; };
@@ -42,6 +41,7 @@
 		22CFF87318680E2F00CCF761 /* mainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFF87218680E2F00CCF761 /* mainViewController.xib */; };
 		22DD87FD187A496000ACA81B /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DD87FC187A496000ACA81B /* next.png */; };
 		22DD87FF187A559800ACA81B /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DD87FE187A559800ACA81B /* save.png */; };
+		22F4E15A1886FDA10073412E /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4E1591886FDA10073412E /* RecordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,6 @@
 
 /* Begin PBXFileReference section */
 		222AD0401885B73200838FF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		22459E7E188648BC0086C7B6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = toeflspeakingtimer/RecordViewController.h; sourceTree = SOURCE_ROOT; };
-		22459E7F188648BC0086C7B6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = toeflspeakingtimer/RecordViewController.m; sourceTree = SOURCE_ROOT; };
 		22459E80188648BC0086C7B6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = toeflspeakingtimer/RecordViewController.xib; sourceTree = SOURCE_ROOT; };
 		22459E8418864AB30086C7B6 /* Record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record@2x.png"; sourceTree = "<group>"; };
 		22577DD918752914005035D3 /* Q1Q2question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q1Q2question.mp3; sourceTree = "<group>"; };
@@ -98,6 +96,8 @@
 		22CFF87218680E2F00CCF761 /* mainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = mainViewController.xib; path = ../mainViewController.xib; sourceTree = "<group>"; };
 		22DD87FC187A496000ACA81B /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		22DD87FE187A559800ACA81B /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		22F4E1581886FDA10073412E /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = ../RecordViewController.h; sourceTree = "<group>"; };
+		22F4E1591886FDA10073412E /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = ../RecordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +143,8 @@
 		22459E8618864C100086C7B6 /* Tab2 */ = {
 			isa = PBXGroup;
 			children = (
-				22459E7E188648BC0086C7B6 /* RecordViewController.h */,
-				22459E7F188648BC0086C7B6 /* RecordViewController.m */,
+				22F4E1581886FDA10073412E /* RecordViewController.h */,
+				22F4E1591886FDA10073412E /* RecordViewController.m */,
 				22459E80188648BC0086C7B6 /* RecordViewController.xib */,
 			);
 			name = Tab2;
@@ -356,7 +356,7 @@
 				22CFF84F18680A1800CCF761 /* AppDelegate.m in Sources */,
 				22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */,
 				22CFF84B18680A1800CCF761 /* main.m in Sources */,
-				22459E81188648BC0086C7B6 /* RecordViewController.m in Sources */,
+				22F4E15A1886FDA10073412E /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

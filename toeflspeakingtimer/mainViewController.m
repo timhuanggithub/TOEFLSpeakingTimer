@@ -37,6 +37,9 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationItem.title = @"Practice";
     
+    NSString *a = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"%@",a);
+    
         // Do any additional setup after loading the view.
 }
 

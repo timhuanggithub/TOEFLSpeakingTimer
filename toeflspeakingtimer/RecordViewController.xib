@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController">
             <connections>
+                <outlet property="RecordTableView" destination="Srp-yd-1ij" id="gjs-Ne-eDY"/>
+                <outlet property="questionSegmentedControl" destination="BaP-Mr-j80" id="xob-Z4-JtT"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -18,33 +20,20 @@
                     <rect key="frame" x="20" y="8" width="280" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                        <segment title="Third"/>
+                        <segment title="Q1&amp;Q2"/>
+                        <segment title="Q3&amp;Q4"/>
+                        <segment title="Q5&amp;Q6"/>
                     </segments>
                 </segmentedControl>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aCz-1A-u9r">
-                    <rect key="frame" x="0.0" y="44" width="320" height="414"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-yd-1ij">
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2H-hj-gS0">
-                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem systemItem="favorites" id="N0v-EY-d6a"/>
-                        <tabBarItem systemItem="more" id="2uC-Y8-gOv"/>
-                    </items>
-                </tabBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h62-uA-tuX">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="0.0"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </imageView>
     </objects>
 </document>
