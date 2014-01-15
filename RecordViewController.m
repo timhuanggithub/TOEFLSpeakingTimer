@@ -62,7 +62,7 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationItem.title = @"Record";
     
-    _RecordTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    _RecordTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     
     
@@ -70,12 +70,9 @@
 }
 
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+     NSLog(@"1");
     //NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:Q1Q2Directory error:nil];
     return 1;
 }

@@ -18,6 +18,5 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *questionSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *RecordTableView;
-@property (strong, nonatomic) UITableViewController *RecordTableViewController;
 
 @end
