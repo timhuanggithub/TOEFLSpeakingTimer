@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "mainViewController.h"
 
 @implementation AppDelegate
 
@@ -18,24 +17,25 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    mainViewController *mvc = [[mainViewController alloc] init];
-    mainViewController *mvc1 = [[mainViewController alloc]init];
-    mainViewController *mvc2 = [[mainViewController alloc] init];
+    _mvc = [[mainViewController alloc] init];
+    _rvc = [[RecordViewController alloc]init];
+    _mvc2 = [[mainViewController alloc] init];
     
-    UINavigationController *Q1Q2navController = [[UINavigationController alloc] initWithRootViewController:mvc];
-    Q1Q2navController.navigationBar.barTintColor = DEFAULT_COLOR;
-    Q1Q2navController.navigationBar.translucent = NO;
-    Q1Q2navController.navigationBar.tintColor = [UIColor whiteColor];
+    _Q1Q2navController = [[UINavigationController alloc] initWithRootViewController:_mvc];
+    _Q1Q2navController.navigationBar.barTintColor = DEFAULT_COLOR;
+    _Q1Q2navController.navigationBar.translucent = NO;
+    _Q1Q2navController.navigationBar.tintColor = [UIColor whiteColor];
     
     
-    UINavigationController *Q3Q4navController = [[UINavigationController alloc]initWithRootViewController:mvc1];
-    Q3Q4navController.navigationBar.barTintColor = DEFAULT_COLOR;
-    Q3Q4navController.navigationBar.translucent = NO;
-    Q3Q4navController.navigationBar.tintColor = [UIColor whiteColor];
+    _Q3Q4navController = [[UINavigationController alloc]initWithRootViewController:_rvc];
+    _Q3Q4navController.navigationBar.barTintColor = DEFAULT_COLOR;
+    _Q3Q4navController.navigationBar.translucent = NO;
+    _Q3Q4navController.navigationBar.tintColor = [UIColor whiteColor];
+    
     
     UITabBarController *tabBarController = [[UITabBarController alloc]init];
     tabBarController.tabBar.tintColor = DEFAULT_COLOR;
-    NSArray *viewControllers = [NSArray arrayWithObjects:Q1Q2navController, Q3Q4navController, mvc2, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:_Q1Q2navController, _Q3Q4navController, _mvc2, nil];
     [tabBarController setViewControllers: viewControllers];
     
     self.window.rootViewController = tabBarController;

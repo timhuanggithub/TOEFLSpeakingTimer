@@ -10,7 +10,9 @@
 #import "SpeakingTimerViewController.h"
 
 
-@interface mainViewController : UIViewController
+@interface mainViewController : UIViewController{
+    
+}
 @property (weak, nonatomic) IBOutlet UIButton *buttonQ1Q2;
 @property (weak, nonatomic) IBOutlet UIButton *buttonQ3Q4;
 @property (weak, nonatomic) IBOutlet UIButton *buttonQ5Q6;
@@ -21,5 +23,6 @@
 - (IBAction)pressButtonQ3Q4:(id)sender;
 - (IBAction)pressButtonQ5Q6:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *test;
+@property (weak,nonatomic) UITabBarItem *tbi;
 
 @end

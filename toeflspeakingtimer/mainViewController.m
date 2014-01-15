@@ -18,10 +18,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UITabBarItem *tbi = self.tabBarItem;
-        tbi.title = @"Practice";
+        _tbi = self.tabBarItem;
+        _tbi.title = @"Practice";
         UIImage *icon = [UIImage imageNamed:@"Practice"];
-        tbi.image = icon;
+        _tbi.image = icon;
         
         
     }
@@ -37,9 +37,7 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationItem.title = @"Practice";
     
-
-    
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

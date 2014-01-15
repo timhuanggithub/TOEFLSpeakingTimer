@@ -195,7 +195,7 @@
     speak.delegate = self;
     
     [_playRecord setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
-    _saveToRecord.enabled = YES;
+    _playRecord.enabled = YES;
     _playRecord.hidden = YES;
     
     [_saveToRecord setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
@@ -308,8 +308,37 @@
     NSArray *destPathComponent = [NSArray arrayWithObjects:currentQuestionDirectory,destFileName, nil];
     NSURL *destURL = [NSURL fileURLWithPathComponents:destPathComponent];
     if ([sourceURL checkResourceIsReachableAndReturnError:nil]) {
-        [fileManger moveItemAtURL:sourceURL toURL:destURL error:nil];
-    }
+        if ([fileManger moveItemAtURL:sourceURL toURL:destURL error:nil]) {
+            static float const curvingIntoCartAnimationDuration = 1.0f;
+            
+            CALayer * layerToAnimate = _saveToRecord.layer;
+            
+            CAKeyframeAnimation * itemViewCurvingIntoCartAnimation = [self itemViewCurvingIntoCartAnimation];
+            CABasicAnimation * itemViewShrinkingAnimation =  [CABasicAnimation animationWithKeyPath:@"bounds"];
+            itemViewShrinkingAnimation.toValue = [NSValue valueWithCGRect:CGRectMake(0.0,0.0, _saveToRecord.bounds.size.width/1.5, _saveToRecord.bounds.size.height/1.5)];
+            CABasicAnimation * itemAlphaFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+            itemAlphaFadeAnimation.toValue = [NSNumber numberWithFloat:0.7];
+            
+            CAAnimationGroup * shrinkFadeAndCurveAnimation = [CAAnimationGroup animation];
+            [shrinkFadeAndCurveAnimation setAnimations:[NSArray arrayWithObjects:
+                                                        itemViewCurvingIntoCartAnimation,
+                                                        itemViewShrinkingAnimation,
+                                                        itemAlphaFadeAnimation,
+                                                        nil]];
+            [shrinkFadeAndCurveAnimation setDuration:curvingIntoCartAnimationDuration];
+            [shrinkFadeAndCurveAnimation setDelegate:self];
+            [shrinkFadeAndCurveAnimation setRemovedOnCompletion:NO];
+            [shrinkFadeAndCurveAnimation setValue:@"shrinkAndCurveToAddToOrderAnimation" forKey:@"name"];
+            [layerToAnimate addAnimation:shrinkFadeAndCurveAnimation forKey:nil];
+            _saveToRecord.enabled = NO;
+
+        }
+        else{
+            UIAlertView *alertForMove =[[UIAlertView alloc]initWithTitle:@"Notification" message:@"File moved failed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertForMove show];
+        }
+        
+        }
     else{
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Notification" message:@"The record has been saved. " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
@@ -392,6 +421,35 @@
     CGRect frame = button1.frame;
     button1.frame = button2.frame;
     button2.frame =frame;
+}
+
+
+
+
+- (CAKeyframeAnimation *) itemViewCurvingIntoCartAnimation {
+    CGRect positionOfItemViewInView = _saveToRecord.frame;
+    
+    float riseAbovePoint = 300.0f;
+    
+    CGPoint beginningPointOfQuadCurve = positionOfItemViewInView.origin;
+    
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    CGPoint endPointOfQuadCurve = CGPointMake(screenWidth/2, screenHeight);
+
+    CGPoint controlPointOfQuadCurve = CGPointMake((beginningPointOfQuadCurve.x + endPointOfQuadCurve.x *2)/2, beginningPointOfQuadCurve.y -riseAbovePoint);
+    
+    UIBezierPath * quadBezierPathOfAnimation = [UIBezierPath bezierPath];
+    [quadBezierPathOfAnimation moveToPoint:beginningPointOfQuadCurve];
+    [quadBezierPathOfAnimation addQuadCurveToPoint:endPointOfQuadCurve controlPoint:controlPointOfQuadCurve];
+    
+    CAKeyframeAnimation * itemViewCurvingIntoCartAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    itemViewCurvingIntoCartAnimation.path = quadBezierPathOfAnimation.CGPath;
+    
+    return itemViewCurvingIntoCartAnimation;
 }
 
 @end

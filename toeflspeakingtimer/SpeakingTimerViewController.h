@@ -10,6 +10,7 @@
 #import "mainViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface SpeakingTimerViewController : UIViewController<AVAudioPlayerDelegate,AVAudioRecorderDelegate>{
     NSTimer *prepareTimer;
@@ -39,6 +40,7 @@
 @property NSInteger remainingRecordTime;
 
 @property (weak, nonatomic) IBOutlet UITextView *questionDescription;
+
 
 @property NSArray *playOrder;
 @property (weak, nonatomic) IBOutlet UILabel *TimeLabel;
