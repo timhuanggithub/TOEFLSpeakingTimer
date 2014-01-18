@@ -22,7 +22,7 @@
 - (IBAction)pressButtonQ1Q2:(id)sender;
 - (IBAction)pressButtonQ3Q4:(id)sender;
 - (IBAction)pressButtonQ5Q6:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *test;
+
 @property (weak,nonatomic) UITabBarItem *tbi;
 
 @end

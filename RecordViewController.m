@@ -23,12 +23,12 @@
         UIImage *icon = [UIImage imageNamed:@"Record"];
         tbi.image = icon;
         
-        _RecordTableView.delegate  = self;
-        _RecordTableView.dataSource = self;
+        //_RecordTableView.delegate  = self;
+        //_RecordTableView.dataSource = self;
         
-        Q1Q2Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q1Q2/"];
-        Q3Q4Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q3Q4/"];
-        Q5Q6Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q5Q6/"];
+        Q1Q2Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/Q1Q2/"];
+        Q3Q4Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/Q3Q4/"];
+        Q5Q6Directory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"/Q5Q6/"];
         
         if (![[NSFileManager defaultManager]fileExistsAtPath:Q1Q2Directory isDirectory:NULL]) {
             [[NSFileManager defaultManager] createDirectoryAtPath:Q1Q2Directory withIntermediateDirectories:NO attributes:nil error:nil];
@@ -72,9 +72,11 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-     NSLog(@"1");
-    //NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:Q1Q2Directory error:nil];
-    return 1;
+    
+    NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:Q1Q2Directory error:nil];
+    NSLog(@"%lu",(unsigned long)fileArray.count);
+    NSLog(@"%@",Q1Q2Directory);
+    return [fileArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
