@@ -25,14 +25,23 @@
 
         
         if ( iForArray == _playOrder.count && sender == self){
-            _saveToRecord.hidden = NO;
-            _playRecord.hidden =NO;
-            recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
-            recordPlayer.delegate = self;
-            [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-            _TimeLabel.text = @"00:00";
-            [self swapButtonPostion:_startStopButton with:_playRecord];
-            ButtonSwaped = YES;
+            [session requestRecordPermission:^(BOOL granted) {
+                if (granted) {
+                    _saveToRecord.hidden = NO;
+                    _playRecord.hidden =NO;
+                    recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
+                    recordPlayer.delegate = self;
+                    [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+                    _TimeLabel.text = @"00:00";
+                    [self swapButtonPostion:_startStopButton with:_playRecord];
+                    ButtonSwaped = YES;
+
+                }
+                else {
+                    [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+                    _TimeLabel.text = @"00:00";
+                }
+            }];
             
             
             
@@ -307,6 +316,7 @@
     
     NSArray *destPathComponent = [NSArray arrayWithObjects:currentQuestionDirectory,destFileName, nil];
     NSURL *destURL = [NSURL fileURLWithPathComponents:destPathComponent];
+
     if ([sourceURL checkResourceIsReachableAndReturnError:nil]) {
         if ([fileManger moveItemAtURL:sourceURL toURL:destURL error:nil]) {
             static float const curvingIntoCartAnimationDuration = 1.0f;
@@ -408,8 +418,8 @@
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
     if (_remainingSpeakingTime == 0 && recorder == speakingRecorder) {
-        _saveToRecord.hidden = NO;
-        _playRecord.hidden =NO;
+        //_saveToRecord.hidden = NO;
+       //_playRecord.hidden =NO;
         recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
         recordPlayer.delegate = self;
     }

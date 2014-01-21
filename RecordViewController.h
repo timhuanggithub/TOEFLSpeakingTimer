@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordStore.h"
 
 @interface RecordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     NSString *Q1Q2Directory;
     NSString *Q3Q4Directory;
     NSString *Q5Q6Directory;
     NSFileManager *fileManager;
-    
+    NSString *currentDirectory;
+    RecordStore *recordStore;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *questionSegmentedControl;

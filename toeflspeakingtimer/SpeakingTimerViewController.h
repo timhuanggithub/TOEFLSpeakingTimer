@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
+#import "RecordStore.h"
 
 @interface SpeakingTimerViewController : UIViewController<AVAudioPlayerDelegate,AVAudioRecorderDelegate>{
     NSTimer *prepareTimer;
