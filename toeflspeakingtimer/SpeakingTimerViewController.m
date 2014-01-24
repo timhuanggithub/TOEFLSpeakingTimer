@@ -65,7 +65,7 @@
             if ([_playOrder[iForArray] isKindOfClass:[NSString class]]) {
                 iForArray++;
                 [self pressStartButton:self];
-                _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", _remainingPrepareTime/100,_remainingPrepareTime%100];
+                _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", _remainingPrepareTime/100,_remainingPrepareTime%100];
             }
             else{
                 [self stop];
@@ -134,7 +134,7 @@
 -(void) updatePrepareTime{
     if (_remainingPrepareTime >0) {
         _remainingPrepareTime -= 1;
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", _remainingPrepareTime/100,_remainingPrepareTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", _remainingPrepareTime/100,_remainingPrepareTime%100];
     }
     else if (_remainingPrepareTime <= 0){
         [self stop];
@@ -152,7 +152,7 @@
             
         }
         _remainingSpeakingTime -= 1;
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", _remainingSpeakingTime/100,_remainingSpeakingTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", _remainingSpeakingTime/100,_remainingSpeakingTime%100];
 
     }
     else if(_remainingSpeakingTime <= 0){
@@ -165,7 +165,7 @@
 -(void) updateReadingTime{
     if (_remainingReadingTime > 0) {
         _remainingReadingTime -= 1;
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",_remainingReadingTime/100,_remainingReadingTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",_remainingReadingTime/100,_remainingReadingTime%100];
     }
     else if (_remainingReadingTime <=0){
         [self stop];
@@ -219,7 +219,7 @@
         _initalPrepareTime = Q1Q2PrepareTime;
         _initalSpeakingTime = Q1Q2SpeakingTime;
        
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",_initalPrepareTime/100,_initalPrepareTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",_initalPrepareTime/100,_initalPrepareTime%100];
         
         NSURL *Q1Q2questionURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Q1Q2question" ofType:@"mp3"]];
         AVAudioPlayer *Q1Q2question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q1Q2questionURL error:nil];
@@ -251,7 +251,7 @@
         _questionDescription.editable = NO;
         _questionDescription.text = @"In this question, you have 45 or 50 seconds to read passage,30 seconds to prepare and 60 seconds to speak.\n\nPress start when you are ready to read passage and after listening.";
         
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",_initalReadingTime/100,_initalReadingTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",_initalReadingTime/100,_initalReadingTime%100];
 
         NSTimer *readingTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateReadingTime) userInfo:nil repeats:YES];
         
@@ -273,7 +273,7 @@
         _questionDescription.editable = NO;
         _questionDescription.text = @"In this question, you have 20 seconds to prepare your answers, 60 seconds to speak.\n\nPress start after the listening.";
 
-        _TimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",_initalPrepareTime/100,_initalPrepareTime%100];
+        _TimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",_initalPrepareTime/100,_initalPrepareTime%100];
         
         NSURL *Q5Q6questionURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Q5Q6question" ofType:@"mp3"]];
         AVAudioPlayer *Q5Q6question = [[AVAudioPlayer alloc]initWithContentsOfURL:Q5Q6questionURL error:nil];
@@ -319,6 +319,7 @@
 
     if ([sourceURL checkResourceIsReachableAndReturnError:nil]) {
         if ([fileManger moveItemAtURL:sourceURL toURL:destURL error:nil]) {
+            
             static float const curvingIntoCartAnimationDuration = 1.0f;
             
             CALayer * layerToAnimate = _saveToRecord.layer;
@@ -328,7 +329,6 @@
             itemViewShrinkingAnimation.toValue = [NSValue valueWithCGRect:CGRectMake(0.0,0.0, _saveToRecord.bounds.size.width/1.5, _saveToRecord.bounds.size.height/1.5)];
             CABasicAnimation * itemAlphaFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
             itemAlphaFadeAnimation.toValue = [NSNumber numberWithFloat:0.7];
-            
             CAAnimationGroup * shrinkFadeAndCurveAnimation = [CAAnimationGroup animation];
             [shrinkFadeAndCurveAnimation setAnimations:[NSArray arrayWithObjects:
                                                         itemViewCurvingIntoCartAnimation,
@@ -340,6 +340,8 @@
             [shrinkFadeAndCurveAnimation setRemovedOnCompletion:NO];
             [shrinkFadeAndCurveAnimation setValue:@"shrinkAndCurveToAddToOrderAnimation" forKey:@"name"];
             [layerToAnimate addAnimation:shrinkFadeAndCurveAnimation forKey:nil];
+            //RecordStore *recordStore = [[RecordStore sharedStore]initWithDirectory:currentQuestionDirectory];
+            //[recordStore addFile:destFileName];
             _saveToRecord.enabled = NO;
 
         }
@@ -418,8 +420,6 @@
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
     if (_remainingSpeakingTime == 0 && recorder == speakingRecorder) {
-        //_saveToRecord.hidden = NO;
-       //_playRecord.hidden =NO;
         recordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:speakingRecorder.url error:nil];
         recordPlayer.delegate = self;
     }

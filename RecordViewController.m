@@ -57,7 +57,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    NSLog(@"11");
     [_RecordTableView reloadData];
 }
 
@@ -69,7 +68,7 @@
     _questionSegmentedControl.selectedSegmentIndex = 0;
     currentDirectory = Q1Q2Directory;
     [_questionSegmentedControl addTarget:self action:@selector(questionChoose:) forControlEvents:UIControlEventValueChanged];
-    recordStore = [[RecordStore sharedStore]initWithDirectory:currentDirectory];
+    NSLog(@"11");
     
     
 
@@ -90,8 +89,8 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-        return recordStore.fileArray.count;
+    recordStore = [[RecordStore sharedStore]initWithDirectory:currentDirectory];
+    return recordStore.fileArray.count;
 
 }
 
@@ -101,28 +100,21 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
         
     }
+    NSMutableArray *dateArray = [[NSMutableArray alloc]init];
+    NSMutableArray *timeArray = [[NSMutableArray alloc]init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"hh:mm a";
     
-    if (recordStore.fileArray.count == 0) {
-        cell.textLabel.text = @"No recordings";
-        cell.detailTextLabel.text = @"";
+    for (NSString *fileName in recordStore.fileArray) {
+        NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
+        [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+        [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
     }
-    else{
-        NSMutableArray *dateArray = [[NSMutableArray alloc]init];
-        NSMutableArray *timeArray = [[NSMutableArray alloc]init];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"MM/dd/yy";
-        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-        timeFormatter.dateFormat = @"hh:mm a";
-        
-        for (NSString *fileName in recordStore.fileArray) {
-            NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
-            [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
-            [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
-        }
-        
-        cell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
-        cell.detailTextLabel.text = [dateArray objectAtIndex:indexPath.row];
-   }
+    
+    cell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [dateArray objectAtIndex:indexPath.row];
     return cell;
     
 }

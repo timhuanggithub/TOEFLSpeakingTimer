@@ -11,15 +11,16 @@
 
 @interface RecordStore : NSObject{
     
+    
 
     
 }
 
 @property (nonatomic,strong) NSMutableArray *fileArray;
-@property (nonatomic,strong) NSString *currentDirectory;
+@property (nonatomic,strong) NSString * currentDirectory;
 
 +(RecordStore *)sharedStore;
 -(id)initWithDirectory:(NSString *)directory;
 -(id)removeFileFromStore:(NSInteger)index;
-
+-(id)addFile:(NSString *)fileName;
 @end

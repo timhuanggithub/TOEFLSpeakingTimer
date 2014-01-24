@@ -26,7 +26,7 @@
 -(id)initWithDirectory:(NSString *)directory{
     self = [super init];
     if (self) {
-        _currentDirectory = directory;
+         _currentDirectory = directory;
         _fileArray = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:_currentDirectory error:nil] mutableCopy];
     }
     return self;
@@ -38,7 +38,9 @@
     return self;
 }
 
--(id)addFileToStore;{
+-(id)addFile:(NSString *)fileName{
+    [_fileArray addObject:fileName];
+    return self;
 
 }
 @end

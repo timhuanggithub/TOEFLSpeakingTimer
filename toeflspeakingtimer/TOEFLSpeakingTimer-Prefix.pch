@@ -6,7 +6,7 @@
 
 #define DEFAULT_COLOR [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1.0]
 #define Q1Q2PrepareTime 100
-#define Q1Q2SpeakingTime 1000
+#define Q1Q2SpeakingTime 100
 #define Q3Q4PrepareTime 3000
 #define Q3Q4SpeakingTime 6000
 #define Q5Q6PrepareTime 2000
