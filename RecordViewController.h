@@ -16,9 +16,14 @@
     NSFileManager *fileManager;
     NSString *currentDirectory;
     RecordStore *recordStore;
+    BOOL cellPressed;
+    UITapGestureRecognizer *tap;
 }
+
+-(void)didTapTableView:(UIGestureRecognizer *)recognizer;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *questionSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *RecordTableView;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end

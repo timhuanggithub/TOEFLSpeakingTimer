@@ -43,15 +43,6 @@
             [fileManager createDirectoryAtPath:Q5Q6Directory withIntermediateDirectories:NO attributes:nil error:nil];
             
         }
-
-        
-        
-        
-        
-        
-        
-        
-        
     }
     return self;
 }
@@ -68,13 +59,8 @@
     _questionSegmentedControl.selectedSegmentIndex = 0;
     currentDirectory = Q1Q2Directory;
     [_questionSegmentedControl addTarget:self action:@selector(questionChoose:) forControlEvents:UIControlEventValueChanged];
-    NSLog(@"11");
-    
-    
-
-    
-    
-    
+    _RecordTableView.rowHeight = 55.0;
+    cellPressed = NO;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -95,30 +81,38 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
+    if ([_selectedIndexPath isEqual:indexPath] && cellPressed) {
+        UITableViewCell *cellTester = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
+        cellTester.textLabel.text = @"11";
+        cellTester.detailTextLabel.text = @"22";
+        cellTester.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cellTester;
     }
-    NSMutableArray *dateArray = [[NSMutableArray alloc]init];
-    NSMutableArray *timeArray = [[NSMutableArray alloc]init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateFormat = @"MM/dd/yy";
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"hh:mm a";
-    
-    for (NSString *fileName in recordStore.fileArray) {
-        NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
-        [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
-        [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+    else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        }
+  
+        NSMutableArray *dateArray = [[NSMutableArray alloc]init];
+        NSMutableArray *timeArray = [[NSMutableArray alloc]init];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        dateFormatter.dateFormat = @"MM/dd/yy";
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+        timeFormatter.dateFormat = @"hh:mm a";
+  
+        for (NSString *fileName in recordStore.fileArray) {
+            NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
+            [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+            [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+        }
+  
+        cell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = [dateArray objectAtIndex:indexPath.row];
+        cell.backgroundColor = [UIColor grayColor];
+        return cell;
     }
-    
-    cell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [dateArray objectAtIndex:indexPath.row];
-    return cell;
-    
 }
-
 
 -(void)questionChoose:(id)sender{
     if (_questionSegmentedControl.selectedSegmentIndex == 0) {
@@ -135,6 +129,31 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (!cellPressed) {
+        cellPressed = YES;
+        _selectedIndexPath = indexPath;
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapTableView:)];
+        [_RecordTableView addGestureRecognizer:tap];
+    }
+    
+}
 
+
+-(void)didTapTableView:(UIGestureRecognizer *)recognizer{
+    if (cellPressed) {
+        CGPoint tapLocation = [recognizer locationInView:_RecordTableView];
+        NSIndexPath *indexpath = [_RecordTableView indexPathForRowAtPoint:tapLocation];
+        if ([indexpath isEqual:_selectedIndexPath]) {
+            recognizer.cancelsTouchesInView = NO;
+        }
+        else{
+        cellPressed = NO;
+        [_RecordTableView reloadData];
+        [_RecordTableView removeGestureRecognizer:tap];
+        }
+    }
+}
 
 @end
