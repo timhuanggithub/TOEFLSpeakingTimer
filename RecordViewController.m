@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "RecordCell.h"
 
 @interface RecordViewController ()
 
@@ -59,8 +60,9 @@
     _questionSegmentedControl.selectedSegmentIndex = 0;
     currentDirectory = Q1Q2Directory;
     [_questionSegmentedControl addTarget:self action:@selector(questionChoose:) forControlEvents:UIControlEventValueChanged];
-    _RecordTableView.rowHeight = 55.0;
     cellPressed = NO;
+    _RecordTableView.layer.borderWidth = 0.3;
+    _RecordTableView.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -81,35 +83,40 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSMutableArray *dateArray = [[NSMutableArray alloc]init];
+    NSMutableArray *timeArray = [[NSMutableArray alloc]init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"hh:mm a";
+    
+    for (NSString *fileName in recordStore.fileArray) {
+        NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
+        [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+        [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
+    }
+
     if ([_selectedIndexPath isEqual:indexPath] && cellPressed) {
-        UITableViewCell *cellTester = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
-        cellTester.textLabel.text = @"11";
-        cellTester.detailTextLabel.text = @"22";
-        cellTester.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cellTester;
+
+        RecordCell *recordCell = (RecordCell *)[tableView dequeueReusableCellWithIdentifier:@"recordCell"];
+        if (recordCell == nil) {
+            NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"RecordCell" owner:self options:nil];
+            recordCell = (RecordCell *)[nib objectAtIndex:0];
+        }
+        
+        recordCell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
+        recordCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return recordCell;
     }
     else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
         }
-  
-        NSMutableArray *dateArray = [[NSMutableArray alloc]init];
-        NSMutableArray *timeArray = [[NSMutableArray alloc]init];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"MM/dd/yy";
-        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-        timeFormatter.dateFormat = @"hh:mm a";
-  
-        for (NSString *fileName in recordStore.fileArray) {
-            NSDictionary *fileAttribute = [fileManager attributesOfItemAtPath:[currentDirectory stringByAppendingString:fileName] error:nil];
-            [dateArray addObject:[dateFormatter stringFromDate:[fileAttribute fileCreationDate]]];
-            [timeArray addObject:[timeFormatter stringFromDate:[fileAttribute fileCreationDate]]];
-        }
-  
         cell.textLabel.text = [timeArray objectAtIndex:indexPath.row];
         cell.detailTextLabel.text = [dateArray objectAtIndex:indexPath.row];
-        cell.backgroundColor = [UIColor grayColor];
         return cell;
     }
 }
@@ -153,6 +160,15 @@
         [_RecordTableView reloadData];
         [_RecordTableView removeGestureRecognizer:tap];
         }
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([indexPath isEqual:_selectedIndexPath] && cellPressed) {
+        return 110;
+    }
+    else{
+        return 55;
     }
 }
 

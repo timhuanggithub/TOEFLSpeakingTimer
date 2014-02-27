@@ -10,6 +10,8 @@
 		222AD0411885B73200838FF0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222AD0401885B73200838FF0 /* QuartzCore.framework */; };
 		22459E82188648BC0086C7B6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22459E80188648BC0086C7B6 /* RecordViewController.xib */; };
 		22459E8518864AB30086C7B6 /* Record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22459E8418864AB30086C7B6 /* Record@2x.png */; };
+		224EB99318BE9388005BDA2C /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EB99218BE9388005BDA2C /* RecordCell.m */; };
+		224EB99518BE93F5005BDA2C /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224EB99418BE93F5005BDA2C /* RecordCell.xib */; };
 		22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DD918752914005035D3 /* Q1Q2question.mp3 */; };
 		22577DDC18752951005035D3 /* prepare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DDB18752951005035D3 /* prepare.mp3 */; };
 		22577DDE18752961005035D3 /* speak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DDD18752961005035D3 /* speak.mp3 */; };
@@ -59,6 +61,9 @@
 		222AD0401885B73200838FF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		22459E80188648BC0086C7B6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = toeflspeakingtimer/RecordViewController.xib; sourceTree = SOURCE_ROOT; };
 		22459E8418864AB30086C7B6 /* Record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record@2x.png"; sourceTree = "<group>"; };
+		224EB99118BE9388005BDA2C /* RecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordCell.h; path = toeflspeakingtimer/RecordCell.h; sourceTree = SOURCE_ROOT; };
+		224EB99218BE9388005BDA2C /* RecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordCell.m; path = toeflspeakingtimer/RecordCell.m; sourceTree = SOURCE_ROOT; };
+		224EB99418BE93F5005BDA2C /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordCell.xib; path = toeflspeakingtimer/RecordCell.xib; sourceTree = SOURCE_ROOT; };
 		22577DD918752914005035D3 /* Q1Q2question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q1Q2question.mp3; sourceTree = "<group>"; };
 		22577DDB18752951005035D3 /* prepare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = prepare.mp3; sourceTree = "<group>"; };
 		22577DDD18752961005035D3 /* speak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = speak.mp3; sourceTree = "<group>"; };
@@ -148,6 +153,9 @@
 			children = (
 				22F4E1581886FDA10073412E /* RecordViewController.h */,
 				22F4E1591886FDA10073412E /* RecordViewController.m */,
+				224EB99118BE9388005BDA2C /* RecordCell.h */,
+				224EB99218BE9388005BDA2C /* RecordCell.m */,
+				224EB99418BE93F5005BDA2C /* RecordCell.xib */,
 				2263332F188CCD2300527DBA /* RecordStore.h */,
 				22633330188CCD2300527DBA /* RecordStore.m */,
 				22459E80188648BC0086C7B6 /* RecordViewController.xib */,
@@ -334,6 +342,7 @@
 				22459E82188648BC0086C7B6 /* RecordViewController.xib in Resources */,
 				22577DDC18752951005035D3 /* prepare.mp3 in Resources */,
 				22577DE018752D1A005035D3 /* beep.mp3 in Resources */,
+				224EB99518BE93F5005BDA2C /* RecordCell.xib in Resources */,
 				22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */,
 				229DCE0C1876A1B100C16AEA /* icon.png in Resources */,
 				22AF2F44186A41270048CAC8 /* SpeakingTimerViewController.xib in Resources */,
@@ -358,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22633331188CCD2300527DBA /* RecordStore.m in Sources */,
+				224EB99318BE9388005BDA2C /* RecordCell.m in Sources */,
 				22CFF86F18680A4F00CCF761 /* mainViewController.m in Sources */,
 				22CFF84F18680A1800CCF761 /* AppDelegate.m in Sources */,
 				22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */,
