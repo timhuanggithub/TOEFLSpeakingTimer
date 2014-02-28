@@ -59,7 +59,6 @@
     _questionSegmentedControl.selectedSegmentIndex = 0;
     currentDirectory = Q1Q2Directory;
     [_questionSegmentedControl addTarget:self action:@selector(questionChoose:) forControlEvents:UIControlEventValueChanged];
-    _RecordTableView.rowHeight = 55.0;
     cellPressed = NO;
 }
 
