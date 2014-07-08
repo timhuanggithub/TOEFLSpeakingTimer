@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220F641A18CA734100653F07 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 220F641918CA734100653F07 /* Settings@2x.png */; };
 		222AD0411885B73200838FF0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222AD0401885B73200838FF0 /* QuartzCore.framework */; };
+		222CDE3B18C7C15700B91219 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222CDE3918C7C15700B91219 /* SettingViewController.m */; };
+		222CDE3C18C7C15700B91219 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222CDE3A18C7C15700B91219 /* SettingViewController.xib */; };
 		22459E82188648BC0086C7B6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22459E80188648BC0086C7B6 /* RecordViewController.xib */; };
 		22459E8518864AB30086C7B6 /* Record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22459E8418864AB30086C7B6 /* Record@2x.png */; };
 		22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22577DD918752914005035D3 /* Q1Q2question.mp3 */; };
@@ -18,6 +21,7 @@
 		225A07CE1877B5B9004E2B4C /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 225A07CD1877B5B9004E2B4C /* start.png */; };
 		225A07D61877C02B004E2B4C /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 225A07D51877C02B004E2B4C /* stop.png */; };
 		22633331188CCD2300527DBA /* RecordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22633330188CCD2300527DBA /* RecordStore.m */; };
+		226AF0E918C3FCF00089EB03 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226AF0E818C3FCF00089EB03 /* MessageUI.framework */; };
 		22936DCF186E6D1A005F6AE3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */; };
 		22936DD1186E6D30005F6AE3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22936DD0186E6D30005F6AE3 /* AVFoundation.framework */; };
 		229DCE04187658E600C16AEA /* Q3Q4question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE03187658E600C16AEA /* Q3Q4question.mp3 */; };
@@ -26,6 +30,11 @@
 		229DCE0C1876A1B100C16AEA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 229DCE0B1876A1B100C16AEA /* icon.png */; };
 		22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AF2F41186A41270048CAC8 /* SpeakingTimerViewController.m */; };
 		22AF2F44186A41270048CAC8 /* SpeakingTimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AF2F42186A41270048CAC8 /* SpeakingTimerViewController.xib */; };
+		22C1422018C1749000ACFC9C /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C1421E18C1749000ACFC9C /* PlayerViewController.m */; };
+		22C1422118C1749000ACFC9C /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C1421F18C1749000ACFC9C /* PlayerViewController.xib */; };
+		22C1422718C19D5500ACFC9C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C1422418C19D5500ACFC9C /* back.png */; };
+		22C1422818C19D5500ACFC9C /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C1422518C19D5500ACFC9C /* forward.png */; };
+		22C1422918C19D5500ACFC9C /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C1422618C19D5500ACFC9C /* pause.png */; };
 		22CFF83F18680A1800CCF761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF83E18680A1800CCF761 /* Foundation.framework */; };
 		22CFF84118680A1800CCF761 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF84018680A1800CCF761 /* CoreGraphics.framework */; };
 		22CFF84318680A1800CCF761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CFF84218680A1800CCF761 /* UIKit.framework */; };
@@ -56,7 +65,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220F641918CA734100653F07 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
 		222AD0401885B73200838FF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		222CDE3818C7C15700B91219 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		222CDE3918C7C15700B91219 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		222CDE3A18C7C15700B91219 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		22459E80188648BC0086C7B6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = toeflspeakingtimer/RecordViewController.xib; sourceTree = SOURCE_ROOT; };
 		22459E8418864AB30086C7B6 /* Record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record@2x.png"; sourceTree = "<group>"; };
 		22577DD918752914005035D3 /* Q1Q2question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q1Q2question.mp3; sourceTree = "<group>"; };
@@ -68,6 +81,7 @@
 		225A07D51877C02B004E2B4C /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		2263332F188CCD2300527DBA /* RecordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordStore.h; path = toeflspeakingtimer/RecordStore.h; sourceTree = SOURCE_ROOT; };
 		22633330188CCD2300527DBA /* RecordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordStore.m; path = toeflspeakingtimer/RecordStore.m; sourceTree = SOURCE_ROOT; };
+		226AF0E818C3FCF00089EB03 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22936DD0186E6D30005F6AE3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		229DCE03187658E600C16AEA /* Q3Q4question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Q3Q4question.mp3; sourceTree = "<group>"; };
@@ -78,6 +92,12 @@
 		22AF2F41186A41270048CAC8 /* SpeakingTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakingTimerViewController.m; sourceTree = "<group>"; };
 		22AF2F42186A41270048CAC8 /* SpeakingTimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeakingTimerViewController.xib; sourceTree = "<group>"; };
 		22AF2F4B186A5A840048CAC8 /* constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constant.h; path = ../constant.h; sourceTree = "<group>"; };
+		22C1421D18C1749000ACFC9C /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ../PlayerViewController.h; sourceTree = "<group>"; };
+		22C1421E18C1749000ACFC9C /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ../PlayerViewController.m; sourceTree = "<group>"; };
+		22C1421F18C1749000ACFC9C /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerViewController.xib; path = ../PlayerViewController.xib; sourceTree = "<group>"; };
+		22C1422418C19D5500ACFC9C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		22C1422518C19D5500ACFC9C /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
+		22C1422618C19D5500ACFC9C /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		22CFF83B18680A1800CCF761 /* TOEFLSpeakingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOEFLSpeakingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CFF83E18680A1800CCF761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22CFF84018680A1800CCF761 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226AF0E918C3FCF00089EB03 /* MessageUI.framework in Frameworks */,
 				222AD0411885B73200838FF0 /* QuartzCore.framework in Frameworks */,
 				22936DD1186E6D30005F6AE3 /* AVFoundation.framework in Frameworks */,
 				22936DCF186E6D1A005F6AE3 /* AudioToolbox.framework in Frameworks */,
@@ -130,6 +151,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222CDE3718C7C0CC00B91219 /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+				222CDE3818C7C15700B91219 /* SettingViewController.h */,
+				222CDE3918C7C15700B91219 /* SettingViewController.m */,
+				222CDE3A18C7C15700B91219 /* SettingViewController.xib */,
+			);
+			name = Tab3;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		22459E83188648CD0086C7B6 /* Tab1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +178,9 @@
 		22459E8618864C100086C7B6 /* Tab2 */ = {
 			isa = PBXGroup;
 			children = (
+				22C1421D18C1749000ACFC9C /* PlayerViewController.h */,
+				22C1421E18C1749000ACFC9C /* PlayerViewController.m */,
+				22C1421F18C1749000ACFC9C /* PlayerViewController.xib */,
 				22F4E1581886FDA10073412E /* RecordViewController.h */,
 				22F4E1591886FDA10073412E /* RecordViewController.m */,
 				2263332F188CCD2300527DBA /* RecordStore.h */,
@@ -177,6 +212,7 @@
 		22CFF83D18680A1800CCF761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				226AF0E818C3FCF00089EB03 /* MessageUI.framework */,
 				222AD0401885B73200838FF0 /* QuartzCore.framework */,
 				22936DD0186E6D30005F6AE3 /* AVFoundation.framework */,
 				22936DCE186E6D1A005F6AE3 /* AudioToolbox.framework */,
@@ -191,13 +227,14 @@
 		22CFF84418680A1800CCF761 /* TOEFLSpeakingTimer */ = {
 			isa = PBXGroup;
 			children = (
+				22CFF85018680A1800CCF761 /* Images.xcassets */,
 				229DCE0B1876A1B100C16AEA /* icon.png */,
 				22AF2F4B186A5A840048CAC8 /* constant.h */,
 				22CFF84D18680A1800CCF761 /* AppDelegate.h */,
 				22CFF84E18680A1800CCF761 /* AppDelegate.m */,
 				22459E83188648CD0086C7B6 /* Tab1 */,
 				22459E8618864C100086C7B6 /* Tab2 */,
-				22CFF85018680A1800CCF761 /* Images.xcassets */,
+				222CDE3718C7C0CC00B91219 /* Tab3 */,
 				22CFF84518680A1800CCF761 /* Supporting Files */,
 			);
 			path = TOEFLSpeakingTimer;
@@ -206,6 +243,10 @@
 		22CFF84518680A1800CCF761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				220F641918CA734100653F07 /* Settings@2x.png */,
+				22C1422418C19D5500ACFC9C /* back.png */,
+				22C1422518C19D5500ACFC9C /* forward.png */,
+				22C1422618C19D5500ACFC9C /* pause.png */,
 				22DD87FE187A559800ACA81B /* save.png */,
 				22DD87FC187A496000ACA81B /* next.png */,
 				225A07D51877C02B004E2B4C /* stop.png */,
@@ -321,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				229DCE04187658E600C16AEA /* Q3Q4question.mp3 in Resources */,
+				22C1422118C1749000ACFC9C /* PlayerViewController.xib in Resources */,
 				22577DDE18752961005035D3 /* speak.mp3 in Resources */,
 				22DD87FF187A559800ACA81B /* save.png in Resources */,
 				22DD87FD187A496000ACA81B /* next.png in Resources */,
@@ -328,15 +370,20 @@
 				229DCE081876663500C16AEA /* pictureForFun.jpg in Resources */,
 				225A07D61877C02B004E2B4C /* stop.png in Resources */,
 				22CFF84918680A1800CCF761 /* InfoPlist.strings in Resources */,
+				22C1422918C19D5500ACFC9C /* pause.png in Resources */,
 				22CFF85118680A1800CCF761 /* Images.xcassets in Resources */,
 				225A07CE1877B5B9004E2B4C /* start.png in Resources */,
+				22C1422718C19D5500ACFC9C /* back.png in Resources */,
 				22CFF87318680E2F00CCF761 /* mainViewController.xib in Resources */,
+				22C1422818C19D5500ACFC9C /* forward.png in Resources */,
 				22459E82188648BC0086C7B6 /* RecordViewController.xib in Resources */,
 				22577DDC18752951005035D3 /* prepare.mp3 in Resources */,
 				22577DE018752D1A005035D3 /* beep.mp3 in Resources */,
 				22577DDA18752914005035D3 /* Q1Q2question.mp3 in Resources */,
 				229DCE0C1876A1B100C16AEA /* icon.png in Resources */,
+				222CDE3C18C7C15700B91219 /* SettingViewController.xib in Resources */,
 				22AF2F44186A41270048CAC8 /* SpeakingTimerViewController.xib in Resources */,
+				220F641A18CA734100653F07 /* Settings@2x.png in Resources */,
 				229DCE0618765E0500C16AEA /* Q5Q6question.mp3 in Resources */,
 				22459E8518864AB30086C7B6 /* Record@2x.png in Resources */,
 			);
@@ -357,12 +404,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C1422018C1749000ACFC9C /* PlayerViewController.m in Sources */,
 				22633331188CCD2300527DBA /* RecordStore.m in Sources */,
 				22CFF86F18680A4F00CCF761 /* mainViewController.m in Sources */,
 				22CFF84F18680A1800CCF761 /* AppDelegate.m in Sources */,
 				22AF2F43186A41270048CAC8 /* SpeakingTimerViewController.m in Sources */,
 				22CFF84B18680A1800CCF761 /* main.m in Sources */,
 				22F4E15A1886FDA10073412E /* RecordViewController.m in Sources */,
+				222CDE3B18C7C15700B91219 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

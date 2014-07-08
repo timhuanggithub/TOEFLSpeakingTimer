@@ -10,17 +10,18 @@
 #import <UIKit/UIKit.h>
 
 @interface RecordStore : NSObject{
-    
-    
 
-    
 }
 
 @property (nonatomic,strong) NSMutableArray *fileArray;
 @property (nonatomic,strong) NSString * currentDirectory;
+@property (nonatomic) NSInteger questionType;
 
 +(RecordStore *)sharedStore;
 -(id)initWithDirectory:(NSString *)directory;
 -(id)removeFileFromStore:(NSInteger)index;
 -(id)addFile:(NSString *)fileName;
+-(NSDictionary *)getRecordAttribute:(NSString *)fileName;
+-(NSURL *)getURLFromFileName:(NSString *)fileName;
+
 @end

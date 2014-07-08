@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 tim. All rights reserved.
 //
 
+
+#import "PlayerViewController.h"
 #import "RecordViewController.h"
 
 @interface RecordViewController ()
@@ -43,38 +45,29 @@
             [fileManager createDirectoryAtPath:Q5Q6Directory withIntermediateDirectories:NO attributes:nil error:nil];
             
         }
-
-        
-        
-        
-        
-        
-        
-        
         
     }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    
     [_RecordTableView reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    //self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    _RecordTableView.layer.borderWidth = 0.3;
+    _RecordTableView.layer.borderColor = [[UIColor grayColor] CGColor];
+    
     self.navigationItem.title = @"Record";
     _questionSegmentedControl.selectedSegmentIndex = 0;
     currentDirectory = Q1Q2Directory;
     [_questionSegmentedControl addTarget:self action:@selector(questionChoose:) forControlEvents:UIControlEventValueChanged];
-    NSLog(@"11");
-    
-    
-
-    
-    
-    
+    _RecordTableView.rowHeight = 55.0;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -84,12 +77,20 @@
         }
 }
 
-
-
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     recordStore = [[RecordStore sharedStore]initWithDirectory:currentDirectory];
+
+    
+    if (_questionSegmentedControl.selectedSegmentIndex == 0) {
+        recordStore.questionType = 1;
+    }
+    else if (_questionSegmentedControl.selectedSegmentIndex == 1){
+        recordStore.questionType = 2;
+    }
+    else if (_questionSegmentedControl.selectedSegmentIndex == 2){
+        recordStore.questionType = 3;
+    }
+    
     return recordStore.fileArray.count;
 
 }
@@ -119,7 +120,6 @@
     
 }
 
-
 -(void)questionChoose:(id)sender{
     if (_questionSegmentedControl.selectedSegmentIndex == 0) {
         currentDirectory = Q1Q2Directory;
@@ -135,6 +135,10 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    PlayerViewController *currentPlayerViewController = [[PlayerViewController alloc]iniWithRecord:indexPath.row];
+    [[self navigationController]pushViewController:currentPlayerViewController animated:YES];
+}
 
 
 @end

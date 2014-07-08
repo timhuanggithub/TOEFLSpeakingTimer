@@ -8,39 +8,46 @@
 
 #import "AppDelegate.h"
 
+NSString *const alertDisplayed = @"alertDisplayed";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window.backgroundColor = [UIColor whiteColor];
     
     _mvc = [[mainViewController alloc] init];
     _rvc = [[RecordViewController alloc]init];
-    _mvc2 = [[mainViewController alloc] init];
+    _svc = [[SettingViewController alloc] init];
     
-    _Q1Q2navController = [[UINavigationController alloc] initWithRootViewController:_mvc];
-    _Q1Q2navController.navigationBar.barTintColor = DEFAULT_COLOR;
-    _Q1Q2navController.navigationBar.translucent = NO;
-    _Q1Q2navController.navigationBar.tintColor = [UIColor whiteColor];
+    _speakingNavController = [[UINavigationController alloc] initWithRootViewController:_mvc];
+    //_Q1Q2navController.navigationBar.barTintColor = DEFAULT_COLOR;
+    _speakingNavController.navigationBar.translucent = NO;
+    _speakingNavController.navigationBar.tintColor = DEFAULT_COLOR;
     
     
-    _Q3Q4navController = [[UINavigationController alloc]initWithRootViewController:_rvc];
-    _Q3Q4navController.navigationBar.barTintColor = DEFAULT_COLOR;
-    _Q3Q4navController.navigationBar.translucent = NO;
-    _Q3Q4navController.navigationBar.tintColor = [UIColor whiteColor];
+    _recordNavController = [[UINavigationController alloc]initWithRootViewController:_rvc];
+    //_Q3Q4navController.navigationBar.barTintColor = DEFAULT_COLOR;
+    _recordNavController.navigationBar.translucent = NO;
+    _recordNavController.navigationBar.tintColor = DEFAULT_COLOR;
     
+    _settingNavController = [[UINavigationController alloc]initWithRootViewController:_svc];
+    _settingNavController.navigationBar.translucent = NO;
+    _settingNavController.navigationBar.tintColor = DEFAULT_COLOR;
     
     UITabBarController *tabBarController = [[UITabBarController alloc]init];
     tabBarController.tabBar.tintColor = DEFAULT_COLOR;
-    NSArray *viewControllers = [NSArray arrayWithObjects:_Q1Q2navController, _Q3Q4navController, _mvc2, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:_speakingNavController, _recordNavController, _settingNavController, nil];
     [tabBarController setViewControllers: viewControllers];
     
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
@@ -71,4 +78,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++(void)initialize{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary * factorySetting = @{alertDisplayed:@FALSE
+                                      };
+    [defaults registerDefaults:factorySetting];
+}
 @end

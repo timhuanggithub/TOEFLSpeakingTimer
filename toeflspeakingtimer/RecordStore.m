@@ -43,4 +43,15 @@
     return self;
 
 }
+
+-(NSDictionary *)getRecordAttribute:(NSString *)fileName{
+    NSDictionary *fileAttribute = [[NSFileManager defaultManager] attributesOfItemAtPath:[_currentDirectory stringByAppendingString:fileName] error:nil];
+    return fileAttribute;
+    
+}
+
+-(NSURL *)getURLFromFileName:(NSString *)fileName{
+    NSURL *url = [NSURL URLWithString:[_currentDirectory stringByAppendingString:fileName]];
+    return url;
+}
 @end

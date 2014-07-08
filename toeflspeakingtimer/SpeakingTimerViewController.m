@@ -8,6 +8,9 @@
 
 #import "SpeakingTimerViewController.h"
 
+extern NSString *const alertDisplayed;
+
+
 @interface SpeakingTimerViewController ()
 
 @end
@@ -40,6 +43,13 @@
                 else {
                     [_startStopButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
                     _TimeLabel.text = @"00:00";
+                    if ([[NSUserDefaults standardUserDefaults]boolForKey:alertDisplayed] == FALSE) {
+                        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:alertDisplayed];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        NSString *warningMessage = @"Because you disable access to microphone, record feature can't work. \n To enable this feature, press Home, go to Settings>Privacy>Microphone to enable it.";
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"warning" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                        [alert show];
+                    }
                 }
             }];
             
@@ -113,6 +123,7 @@
         speakingRecorder = [[AVAudioRecorder alloc]initWithURL:outputFileURL settings:recordSetting error:NULL];
         [speakingRecorder prepareToRecord];
         speakingRecorder.delegate = self;
+
         
 
 
@@ -125,7 +136,6 @@
 
     [super viewDidLoad];
     [self setToIntial];
-    
     
 }
 
@@ -281,7 +291,6 @@
         
         currentQuestionDirectory = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"/Q5Q6/"];
         
-        
         _playOrder = [NSArray arrayWithObjects:Q5Q6question,prepare,beep,prepareTimer,speak,beep,speakingTimer, nil];
     }
     
@@ -301,7 +310,7 @@
     if (![fileManger fileExistsAtPath:currentQuestionDirectory isDirectory:NULL]) {
         [fileManger createDirectoryAtPath:currentQuestionDirectory withIntermediateDirectories:NO attributes:nil error:nil];
     }
-   
+
 }
 
 - (IBAction)pressSaveToRecord:(id)sender {

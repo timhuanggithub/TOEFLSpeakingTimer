@@ -34,11 +34,9 @@
     UIImage *image = [UIImage imageNamed:@"pictureForFun.jpg"];
     _picture.contentMode = UIViewContentModeScaleAspectFit;
     _picture.image = image;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    //self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationItem.title = @"Practice";
     
-    NSString *a = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSLog(@"%@",a);
     
         // Do any additional setup after loading the view.
 }

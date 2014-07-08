@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "mainViewController.h"
 #import "RecordViewController.h"
+#import "SettingViewController.h"
 
+extern NSString * const alertDisplayed;
+//extern NSString
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     
@@ -19,10 +22,11 @@
 
 @property (strong, nonatomic) mainViewController *mvc;
 @property (strong, nonatomic) RecordViewController *rvc;
-@property (strong, nonatomic) mainViewController *mvc2;
+@property (strong, nonatomic) SettingViewController *svc;
 
-@property (strong,nonatomic) UINavigationController *Q1Q2navController;
-@property (strong,nonatomic) UINavigationController *Q3Q4navController;
+@property (strong,nonatomic) UINavigationController *speakingNavController;
+@property (strong,nonatomic) UINavigationController *recordNavController;
+@property (strong, nonatomic) UINavigationController *settingNavController;
 
 
 
